@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KTech | Smart Room Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>KTech<span>.</span></h2>
+            <p>Smart Room System</p>
+        </div>
+
+        <nav>
+            <a href="#" class="active">⌂ Dashboard</a>
+            <a href="#sensors">◉ Sensors</a>
+            <a href="#devices">▣ Devices</a>
+            <a href="#activity">◷ Activity</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Embedded Systems Project</p>
+            <small>Smart Room Monitoring</small>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div>
+                <h1>Smart Room Dashboard</h1>
+                <p>Monitor your room in real time</p>
+            </div>
+
+            <div class="connection" id="connectionStatus">
+                <span class="status-dot"></span>
+                Connecting to MQTT...
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME SECTION -->
+        <section class="welcome">
+
+            <div>
+                <h2>Welcome to KTech Smart Room</h2>
+                <p>Monitor your room environment and security.</p>
+            </div>
+
+            <p class="date" id="currentDate">
+                Loading date...
+            </p>
+
+        </section>
+
+
+        <!-- SENSOR MONITORING -->
+        <section id="sensors" class="section">
+
+            <h2>Environment Monitoring</h2>
+
+            <div class="cards">
+
+                <!-- TEMPERATURE -->
+                <div class="card temperature">
+
+                    <div class="card-top">
+                        <span>Temperature</span>
+                        <span class="icon">🌡️</span>
+                    </div>
+
+                    <h3 id="temperature">-- °C</h3>
+                    <p>Room temperature</p>
+
+                </div>
+
+
+                <!-- HUMIDITY -->
+                <div class="card humidity">
+
+                    <div class="card-top">
+                        <span>Humidity</span>
+                        <span class="icon">💧</span>
+                    </div>
+
+                    <h3 id="humidity">-- %</h3>
+                    <p>Room humidity</p>
+
+                </div>
+
+
+                <!-- LIGHT -->
+                <div class="card light">
+
+                    <div class="card-top">
+                        <span>Room Light</span>
+                        <span class="icon">💡</span>
+                    </div>
+
+                    <h3 id="lightStatus">Waiting...</h3>
+                    <p>Automatic lighting</p>
+
+                </div>
+
+
+                <!-- MOTION -->
+                <div class="card motion">
+
+                    <div class="card-top">
+                        <span>Motion</span>
+                        <span class="icon">🚶</span>
+                    </div>
+
+                    <h3 id="motionStatus">Waiting...</h3>
+                    <p>Motion detection</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHARTS -->
+        <section class="charts-section">
+
+            <div class="chart-card">
+                <h3>Temperature History</h3>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Humidity History</h3>
+                <canvas id="humidityChart"></canvas>
+            </div>
+
+        </section>
+
+
+        <!-- DEVICE MONITORING AND CONTROL -->
+        <section id="devices" class="device-section">
+
+            <h2>Device Monitoring & Controls</h2>
+
+
+            <!-- LED CONTROL -->
+            <div class="device-card">
+
+                <div>
+                    <h3>💡 Room LED</h3>
+                    <p>Manual and automatic light control</p>
+
+                    <span id="ledStatus">OFF</span>
+                </div>
+
+                <div class="device-controls">
+
+                    <button
+                        type="button"
+                        onclick="controlDevice('led', 'ON')">
+                        Turn ON
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="controlDevice('led', 'OFF')">
+                        Turn OFF
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="controlDevice('led', 'AUTO')">
+                        AUTO
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUZZER CONTROL -->
+            <div class="device-card">
+
+                <div>
+                    <h3>🔔 Security Buzzer</h3>
+                    <p>Manual and automatic alarm control</p>
+
+                    <span id="buzzerStatus">OFF</span>
+                </div>
+
+                <div class="device-controls">
+
+                    <button
+                        type="button"
+                        onclick="controlDevice('buzzer', 'ON')">
+                        Turn ON
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="controlDevice('buzzer', 'OFF')">
+                        Turn OFF
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="controlDevice('buzzer', 'AUTO')">
+                        AUTO
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PIR SENSOR -->
+            <div class="device-card">
+
+                <div>
+                    <h3>🚶 PIR Motion Sensor</h3>
+                    <p>Room movement detection</p>
+
+                    <span id="pirStatus">No Motion</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIVITY HISTORY -->
+        <section class="activity-section">
+
+            <h2>Room Activity History</h2>
+
+            <div class="activity-card">
+
+                <ul id="activityList">
+
+                    <li class="activity-empty">
+                        Waiting for room activities...
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- SYSTEM INFORMATION -->
+        <section id="activity" class="section">
+
+            <h2>System Information</h2>
+
+            <div class="activity-box">
+
+                <p>System initialized successfully.</p>
+
+                <p>ESP32 Smart Room Monitoring System</p>
+
+                <p id="lastUpdate">
+                    Last updated: --
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                © 2026 KTech Technologies |
+                Smart Room Monitoring System
+            </p>
+
+            <p>Learn • Practice • Build</p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- MQTT LIBRARY -->
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+<!-- CHART.JS LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+<!-- CUSTOM JAVASCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
