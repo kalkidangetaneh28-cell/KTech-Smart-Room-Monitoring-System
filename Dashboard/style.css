@@ -1,0 +1,444 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #ffffff;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    background: #111c30;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    font-size: 28px;
+    color: #38bdf8;
+}
+
+.logo h2 span {
+    color: #ffffff;
+}
+
+.logo p {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+nav {
+    margin-top: 50px;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    color: #94a3b8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background: #1e3a5f;
+    color: #38bdf8;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+    flex: 1;
+    padding: 35px;
+    min-width: 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 27px;
+}
+
+.topbar p {
+    color: #94a3b8;
+    margin-top: 8px;
+}
+
+.connection {
+    background: #163b32;
+    color: #4ade80;
+    padding: 12px 18px;
+    border-radius: 25px;
+    font-size: 13px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+/* WELCOME */
+
+.welcome {
+    background: linear-gradient(120deg, #164e80, #1e293b);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.welcome h2 {
+    margin-bottom: 10px;
+}
+
+.welcome p,
+.date {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+/* CARDS */
+
+.section {
+    margin-top: 35px;
+}
+
+.section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: #162238;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #25344d;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #94a3b8;
+}
+
+.icon {
+    font-size: 25px;
+}
+
+.card h3 {
+    font-size: 30px;
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.temperature h3 {
+    color: #38bdf8;
+}
+
+.humidity h3 {
+    color: #60a5fa;
+}
+
+.light h3 {
+    color: #facc15;
+}
+
+.motion h3 {
+    color: #4ade80;
+}
+
+/* DEVICE STATUS */
+
+.device-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.device {
+    background: #162238;
+    border: 1px solid #25344d;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.device h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.device p {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.badge {
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.on {
+    background: #164e37;
+    color: #4ade80;
+}
+
+.off {
+    background: #4b2930;
+    color: #f87171;
+}
+
+/* ACTIVITY */
+
+.activity-box {
+    background: #162238;
+    border: 1px solid #25344d;
+    padding: 22px;
+    border-radius: 12px;
+    color: #94a3b8;
+    line-height: 2;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.chart-card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 0;
+}
+
+.chart-card h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.chart-card canvas {
+    width: 100% !important;
+    max-height: 280px;
+}
+
+.activity-section {
+    margin-top: 25px;
+}
+
+.activity-section h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.activity-card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+#activityList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#activityList li {
+    padding: 14px;
+    border-bottom: 1px solid #334155;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#activityList li:last-child {
+    border-bottom: none;
+}
+
+.activity-time {
+    color: #94a3b8;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.activity-empty {
+    color: #94a3b8 !important;
+}
+
+.device-section {
+    margin-top: 25px;
+}
+
+.device-section h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.device-card {
+    background: #1e293b;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.device-card h3 {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.device-card p {
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.device-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.device-controls button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.device-controls button:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 600px) {
+    .device-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+}
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    nav a {
+        padding: 10px;
+        margin-right: 5px;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .welcome {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cards,
+    .device-container {
+        grid-template-columns: 1fr;
+    }
+}
