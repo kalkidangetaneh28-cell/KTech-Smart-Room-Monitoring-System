@@ -1,7 +1,7 @@
 
 // KTech Smart Room Dashboard
 
-const MQTT_URL = "ws://broker.hivemq.com:8000/mqtt";
+const MQTT_URL = "wss://broker.hivemq.com:8884/mqtt";
 const MQTT_TOPIC = "ktech/smartroom/demo2019/sensors";
 const MQTT_COMMAND_TOPIC = "ktech/smartroom/demo2019/commands";
 const LIGHT_THRESHOLD = 1979;
